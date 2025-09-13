@@ -38,7 +38,7 @@ export default function LoginPortal({ onLogin }: LoginPortalProps) {
               Empowering Education Through
               <span className="bg-gradient-hero bg-clip-text text-transparent"> Smart Management</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl">
+            <p className="text-xl text-muted-foreground max-w-2xl text-center lg:text-left">
               Comprehensive school management platform that helps educators track student progress, 
               attendance, and identify at-risk students with AI-powered insights.
             </p>
