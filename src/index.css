@@ -24,17 +24,17 @@
     --primary-glow: 214 100% 35%;
 
     /* Success & Positive States */
-    --secondary: 158 64% 52%;  /* Fresh Education Green */
+    --secondary: 260 60% 75%;  /* Lavender */
     --secondary-foreground: 0 0% 100%;
-    --secondary-glow: 158 100% 60%;
+    --secondary-glow: 260 80% 85%;
 
     /* Neutral States */
     --muted: 220 13% 91%;
     --muted-foreground: 220 9% 46%;
 
     /* Accent & Highlights */
-    --accent: 43 96% 56%;  /* Golden Accent */
-    --accent-foreground: 26 83% 14%;
+    --accent: 320 60% 80%;  /* Light Pink */
+    --accent-foreground: 320 50% 20%;
 
     /* Warning & Risk States */
     --destructive: 0 84% 60%;  /* Risk Red */
@@ -101,16 +101,16 @@
     --primary-glow: 214 100% 75%;
 
     /* Success & Positive States Dark */
-    --secondary: 158 64% 52%;
+    --secondary: 260 60% 65%;
     --secondary-foreground: 215 28% 8%;
-    --secondary-glow: 158 80% 60%;
+    --secondary-glow: 260 70% 75%;
 
     /* Neutral States Dark */
     --muted: 215 25% 20%;
     --muted-foreground: 217 10% 65%;
 
     /* Accent Dark */
-    --accent: 43 96% 60%;
+    --accent: 320 60% 70%;
     --accent-foreground: 215 28% 8%;
 
     /* Warning & Risk States Dark */
