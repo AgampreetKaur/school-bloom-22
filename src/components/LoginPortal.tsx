@@ -114,7 +114,7 @@ export default function LoginPortal({ onLogin }: LoginPortalProps) {
                   <Input
                     id="email"
                     type="email"
-                    placeholder={loginType === 'school' ? 'admin@school.edu' : 'teacher@school.edu'}
+                    placeholder={loginType === 'school' ? 'admin@bharatvidyalaya.edu' : 'ravi.kumar@bharatvidyalaya.edu'}
                     value={formData.email}
                     onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                     required

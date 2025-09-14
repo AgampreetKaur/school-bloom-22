@@ -32,8 +32,8 @@ export interface Student {
 export const studentsData: Student[] = [
   {
     id: '1',
-    name: 'Emma Rodriguez',
-    email: 'emma.rodriguez@student.edu',
+    name: 'Arya Sharma',
+    email: 'arya.sharma@student.edu',
     class: '10A',
     grade: '10th',
     attendance: 95,
@@ -60,8 +60,8 @@ export const studentsData: Student[] = [
   },
   {
     id: '2',
-    name: 'Marcus Thompson',
-    email: 'marcus.thompson@student.edu',
+    name: 'Rohan Gupta',
+    email: 'rohan.gupta@student.edu',
     class: '10A',
     grade: '10th',
     attendance: 78,
@@ -90,8 +90,8 @@ export const studentsData: Student[] = [
   },
   {
     id: '3',
-    name: 'Aisha Patel',
-    email: 'aisha.patel@student.edu',
+    name: 'Priya Reddy',
+    email: 'priya.reddy@student.edu',
     class: '10B',
     grade: '10th',
     attendance: 92,
@@ -118,8 +118,8 @@ export const studentsData: Student[] = [
   },
   {
     id: '4',
-    name: 'Jordan Kim',
-    email: 'jordan.kim@student.edu',
+    name: 'Karan Singh',
+    email: 'karan.singh@student.edu',
     class: '10B',
     grade: '10th',
     attendance: 65,
@@ -148,8 +148,8 @@ export const studentsData: Student[] = [
   },
   {
     id: '5',
-    name: 'Sofia Martinez',
-    email: 'sofia.martinez@student.edu',
+    name: 'Kavya Iyer',
+    email: 'kavya.iyer@student.edu',
     class: '9A',
     grade: '9th',
     attendance: 89,
@@ -176,8 +176,8 @@ export const studentsData: Student[] = [
   },
   {
     id: '6',
-    name: 'Tyler Johnson',
-    email: 'tyler.johnson@student.edu',
+    name: 'Arjun Nair',
+    email: 'arjun.nair@student.edu',
     class: '9A',
     grade: '9th',
     attendance: 72,
@@ -206,8 +206,8 @@ export const studentsData: Student[] = [
   },
   {
     id: '7',
-    name: 'Zara Ahmed',
-    email: 'zara.ahmed@student.edu',
+    name: 'Meera Joshi',
+    email: 'meera.joshi@student.edu',
     class: '11A',
     grade: '11th',
     attendance: 97,
@@ -234,8 +234,8 @@ export const studentsData: Student[] = [
   },
   {
     id: '8',
-    name: 'Alex Chen',
-    email: 'alex.chen@student.edu',
+    name: 'Vikram Kapoor',
+    email: 'vikram.kapoor@student.edu',
     class: '11B',
     grade: '11th',
     attendance: 58,
