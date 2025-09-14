@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { 
-  GraduationCap, 
+  School, 
   Bell, 
   Search, 
   HelpCircle,
@@ -32,10 +32,10 @@ export default function Header({ userType, onLogout, onHelpClick }: HeaderProps)
         {/* Logo & Brand */}
         <div className="flex items-center gap-3">
           <div className="gradient-hero p-2 rounded-lg">
-            <GraduationCap className="h-6 w-6 text-white" />
+            <School className="h-6 w-6 text-white" />
           </div>
           <div>
-            <h1 className="text-xl font-bold">EduPortal</h1>
+            <h1 className="text-xl font-bold">Gurukul</h1>
             <p className="text-xs text-muted-foreground">
               {userType === 'school' ? 'School Administration' : 'Teacher Dashboard'}
             </p>
@@ -81,10 +81,10 @@ export default function Header({ userType, onLogout, onHelpClick }: HeaderProps)
                 </Avatar>
                 <div className="hidden sm:block text-left">
                   <p className="text-sm font-medium">
-                    {userType === 'school' ? 'School Admin' : 'Sarah Johnson'}
+                    {userType === 'school' ? 'School Admin' : 'Priya Sharma'}
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    {userType === 'school' ? 'admin@greenfield.edu' : 'Math Teacher'}
+                    {userType === 'school' ? 'admin@bharatvidyalaya.edu' : 'Math Teacher'}
                   </p>
                 </div>
                 <ChevronDown className="h-4 w-4" />

@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { GraduationCap, School, Users, BookOpen, Shield } from "lucide-react";
+import { School, Users, BookOpen, Shield } from "lucide-react";
 
 interface LoginPortalProps {
   onLogin: (type: 'school' | 'teacher') => void;
@@ -30,9 +30,9 @@ export default function LoginPortal({ onLogin }: LoginPortalProps) {
           <div className="space-y-4">
             <div className="flex items-center justify-center lg:justify-start gap-3">
               <div className="gradient-hero p-3 rounded-xl">
-                <GraduationCap className="h-8 w-8 text-white" />
+                <School className="h-8 w-8 text-white" />
               </div>
-              <h1 className="text-3xl font-bold">EduPortal</h1>
+              <h1 className="text-3xl font-bold">Gurukul</h1>
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
               Empowering Education Through
@@ -147,7 +147,7 @@ export default function LoginPortal({ onLogin }: LoginPortalProps) {
               </div>
 
               <Button type="submit" variant="hero" size="lg" className="w-full">
-                Sign In to EduPortal
+                Sign In to Gurukul
               </Button>
 
               <div className="text-center text-sm text-muted-foreground">
