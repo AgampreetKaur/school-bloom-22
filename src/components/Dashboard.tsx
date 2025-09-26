@@ -5,7 +5,7 @@ import StudentDashboard from "./StudentDashboard";
 import HelpCenter from "./HelpCenter";
 
 interface DashboardProps {
-  userType: 'school' | 'teacher';
+  userType: 'school' | 'teacher' | 'parent';
   onLogout: () => void;
 }
 
@@ -14,25 +14,26 @@ export default function Dashboard({ userType, onLogout }: DashboardProps) {
   const [showHelp, setShowHelp] = useState(false);
 
   const handleStudentDetails = (studentId: string) => {
-    // For now, we'll just show an alert
-    // In a real app, this would open a detailed student view
     alert(`Opening detailed view for student ID: ${studentId}`);
   };
 
   const renderContent = () => {
     switch (activeSection) {
       case 'students':
-        return <StudentDashboard onStudentDetails={handleStudentDetails} />;
+        if (userType === 'parent') {
+          return <ParentDashboard parentEmail="rajesh.gupta@email.com" />;
+        } else if (userType === 'school') {
+          return <SchoolAdminDashboard onStudentDetails={handleStudentDetails} />;
+        } else {
+          return <EnhancedTeacherDashboard onStudentDetails={handleStudentDetails} />;
+        }
       case 'dashboard':
         return (
           <div className="space-y-6">
             <h1 className="text-3xl font-bold">Dashboard Overview</h1>
             <p className="text-muted-foreground">
-              Welcome to your EduPortal dashboard. Navigate using the sidebar to access different features.
+              Welcome to your Gurukul dashboard. Navigate using the sidebar to access different features.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Dashboard overview cards would go here */}
-            </div>
           </div>
         );
       default:

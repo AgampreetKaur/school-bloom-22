@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 interface HeaderProps {
-  userType: 'school' | 'teacher';
+  userType: 'school' | 'teacher' | 'parent';
   onLogout: () => void;
   onHelpClick: () => void;
 }
@@ -37,7 +37,8 @@ export default function Header({ userType, onLogout, onHelpClick }: HeaderProps)
           <div>
             <h1 className="text-xl font-bold">Gurukul</h1>
             <p className="text-xs text-muted-foreground">
-              {userType === 'school' ? 'School Administration' : 'Teacher Dashboard'}
+              {userType === 'school' ? 'School Administration' : 
+               userType === 'teacher' ? 'Teacher Dashboard' : 'Parent Portal'}
             </p>
           </div>
         </div>
@@ -76,15 +77,17 @@ export default function Header({ userType, onLogout, onHelpClick }: HeaderProps)
                 <Avatar className="h-8 w-8">
                   <AvatarImage src="/placeholder-avatar.jpg" />
                   <AvatarFallback className="bg-primary text-primary-foreground">
-                    {userType === 'school' ? 'SA' : 'TC'}
+                    {userType === 'school' ? 'SA' : userType === 'teacher' ? 'TC' : 'PT'}
                   </AvatarFallback>
                 </Avatar>
                 <div className="hidden sm:block text-left">
                   <p className="text-sm font-medium">
-                    {userType === 'school' ? 'School Admin' : 'Priya Sharma'}
+                    {userType === 'school' ? 'School Admin' : 
+                     userType === 'teacher' ? 'Priya Sharma' : 'Rajesh Gupta'}
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    {userType === 'school' ? 'admin@bharatvidyalaya.edu' : 'Math Teacher'}
+                    {userType === 'school' ? 'admin@bharatvidyalaya.edu' : 
+                     userType === 'teacher' ? 'Math Teacher' : 'Parent of Arjun'}
                   </p>
                 </div>
                 <ChevronDown className="h-4 w-4" />

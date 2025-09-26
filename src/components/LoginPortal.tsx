@@ -6,11 +6,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { School, Users, BookOpen, Shield } from "lucide-react";
 
 interface LoginPortalProps {
-  onLogin: (type: 'school' | 'teacher') => void;
+  onLogin: (type: 'school' | 'teacher' | 'parent') => void;
 }
 
 export default function LoginPortal({ onLogin }: LoginPortalProps) {
-  const [loginType, setLoginType] = useState<'school' | 'teacher'>('school');
+  const [loginType, setLoginType] = useState<'school' | 'teacher' | 'parent'>('school');
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -87,13 +87,13 @@ export default function LoginPortal({ onLogin }: LoginPortalProps) {
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Login Type Selector */}
-              <div className="grid grid-cols-2 gap-2 p-1 bg-muted rounded-lg">
+              <div className="grid grid-cols-3 gap-1 p-1 bg-muted rounded-lg">
                 <Button
                   type="button"
                   variant={loginType === 'school' ? 'default' : 'ghost'}
                   size="sm"
                   onClick={() => setLoginType('school')}
-                  className="w-full"
+                  className="w-full text-xs"
                 >
                   School Admin
                 </Button>
@@ -102,9 +102,18 @@ export default function LoginPortal({ onLogin }: LoginPortalProps) {
                   variant={loginType === 'teacher' ? 'default' : 'ghost'}
                   size="sm"
                   onClick={() => setLoginType('teacher')}
-                  className="w-full"
+                  className="w-full text-xs"
                 >
                   Teacher
+                </Button>
+                <Button
+                  type="button"
+                  variant={loginType === 'parent' ? 'default' : 'ghost'}
+                  size="sm"
+                  onClick={() => setLoginType('parent')}
+                  className="w-full text-xs"
+                >
+                  Parent
                 </Button>
               </div>
 
@@ -114,7 +123,11 @@ export default function LoginPortal({ onLogin }: LoginPortalProps) {
                   <Input
                     id="email"
                     type="email"
-                    placeholder={loginType === 'school' ? 'admin@bharatvidyalaya.edu' : 'ravi.kumar@bharatvidyalaya.edu'}
+                    placeholder={
+                      loginType === 'school' ? 'admin@bharatvidyalaya.edu' : 
+                      loginType === 'teacher' ? 'ravi.kumar@bharatvidyalaya.edu' :
+                      'parent@bharatvidyalaya.edu'
+                    }
                     value={formData.email}
                     onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                     required

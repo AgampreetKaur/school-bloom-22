@@ -4,9 +4,9 @@ import Dashboard from "@/components/Dashboard";
 
 const Index = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userType, setUserType] = useState<'school' | 'teacher'>('school');
+  const [userType, setUserType] = useState<'school' | 'teacher' | 'parent'>('school');
 
-  const handleLogin = (type: 'school' | 'teacher') => {
+  const handleLogin = (type: 'school' | 'teacher' | 'parent') => {
     setUserType(type);
     setIsLoggedIn(true);
   };

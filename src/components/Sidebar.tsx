@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 interface SidebarProps {
   activeSection: string;
   onSectionChange: (section: string) => void;
-  userType: 'school' | 'teacher';
+  userType: 'school' | 'teacher' | 'parent';
 }
 
 export default function Sidebar({ activeSection, onSectionChange, userType }: SidebarProps) {
