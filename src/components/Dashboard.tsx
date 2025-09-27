@@ -3,6 +3,9 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import StudentDashboard from "./StudentDashboard";
 import HelpCenter from "./HelpCenter";
+import ParentDashboard from "./ParentDashboard";
+import SchoolAdminDashboard from "./SchoolAdminDashboard";
+import EnhancedTeacherDashboard from "./EnhancedTeacherDashboard";
 
 interface DashboardProps {
   userType: 'school' | 'teacher' | 'parent';
