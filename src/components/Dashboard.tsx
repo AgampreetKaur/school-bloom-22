@@ -24,11 +24,11 @@ export default function Dashboard({ userType, onLogout }: DashboardProps) {
     switch (activeSection) {
       case 'students':
         if (userType === 'parent') {
-          return <ParentDashboard parentEmail="rajesh.gupta@email.com" />;
+          return <ParentDashboard parentEmail="rajesh.gupta@email.com" activeSection="students" />;
         } else if (userType === 'school') {
-          return <SchoolAdminDashboard onStudentDetails={handleStudentDetails} />;
+          return <SchoolAdminDashboard onStudentDetails={handleStudentDetails} activeSection="students" />;
         } else {
-          return <EnhancedTeacherDashboard onStudentDetails={handleStudentDetails} />;
+          return <StudentDashboard onStudentDetails={handleStudentDetails} />;
         }
       case 'dashboard':
         return (
@@ -39,12 +39,68 @@ export default function Dashboard({ userType, onLogout }: DashboardProps) {
             </p>
           </div>
         );
+      case 'attendance':
+        if (userType === 'parent') {
+          return <ParentDashboard parentEmail="rajesh.gupta@email.com" activeSection="attendance" />;
+        } else if (userType === 'school') {
+          return <SchoolAdminDashboard onStudentDetails={handleStudentDetails} activeSection="attendance" />;
+        } else {
+          return <EnhancedTeacherDashboard onStudentDetails={handleStudentDetails} activeSection="attendance" />;
+        }
+      case 'grades':
+        if (userType === 'parent') {
+          return <ParentDashboard parentEmail="rajesh.gupta@email.com" activeSection="grades" />;
+        } else if (userType === 'school') {
+          return <SchoolAdminDashboard onStudentDetails={handleStudentDetails} activeSection="grades" />;
+        } else {
+          return <EnhancedTeacherDashboard onStudentDetails={handleStudentDetails} activeSection="grades" />;
+        }
+      case 'fees':
+        if (userType === 'parent') {
+          return <ParentDashboard parentEmail="rajesh.gupta@email.com" activeSection="fees" />;
+        } else if (userType === 'school') {
+          return <SchoolAdminDashboard onStudentDetails={handleStudentDetails} activeSection="fees" />;
+        } else {
+          return <EnhancedTeacherDashboard onStudentDetails={handleStudentDetails} activeSection="fees" />;
+        }
+      case 'medical':
+        if (userType === 'parent') {
+          return <ParentDashboard parentEmail="rajesh.gupta@email.com" activeSection="medical" />;
+        } else if (userType === 'school') {
+          return <SchoolAdminDashboard onStudentDetails={handleStudentDetails} activeSection="medical" />;
+        } else {
+          return <EnhancedTeacherDashboard onStudentDetails={handleStudentDetails} activeSection="medical" />;
+        }
+      case 'risk-assessment':
+        if (userType === 'parent') {
+          return <ParentDashboard parentEmail="rajesh.gupta@email.com" activeSection="risk-assessment" />;
+        } else if (userType === 'school') {
+          return <SchoolAdminDashboard onStudentDetails={handleStudentDetails} activeSection="risk-assessment" />;
+        } else {
+          return <EnhancedTeacherDashboard onStudentDetails={handleStudentDetails} activeSection="risk-assessment" />;
+        }
+      case 'reports':
+        if (userType === 'parent') {
+          return <ParentDashboard parentEmail="rajesh.gupta@email.com" activeSection="reports" />;
+        } else if (userType === 'school') {
+          return <SchoolAdminDashboard onStudentDetails={handleStudentDetails} activeSection="reports" />;
+        } else {
+          return <EnhancedTeacherDashboard onStudentDetails={handleStudentDetails} activeSection="reports" />;
+        }
+      case 'classes':
+        if (userType === 'parent') {
+          return <ParentDashboard parentEmail="rajesh.gupta@email.com" activeSection="classes" />;
+        } else if (userType === 'school') {
+          return <SchoolAdminDashboard onStudentDetails={handleStudentDetails} activeSection="classes" />;
+        } else {
+          return <EnhancedTeacherDashboard onStudentDetails={handleStudentDetails} activeSection="classes" />;
+        }
       default:
         return (
           <div className="space-y-6">
             <h1 className="text-3xl font-bold capitalize">{activeSection.replace('-', ' ')}</h1>
             <p className="text-muted-foreground">
-              This section is coming soon. Use the Students section to see the full functionality.
+              This section is coming soon.
             </p>
           </div>
         );

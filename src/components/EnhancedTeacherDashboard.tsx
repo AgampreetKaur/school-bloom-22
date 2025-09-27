@@ -22,16 +22,17 @@ import {
   Mail,
   Target,
   TrendingDown,
-  Eye
+  Eye,
+  BookOpen
 } from "lucide-react";
 import { studentsData, getStudentsByRiskLevel } from "@/data/enhancedStudentsData";
 
 interface EnhancedTeacherDashboardProps {
   onStudentDetails: (studentId: string) => void;
+  activeSection?: string;
 }
 
-export default function EnhancedTeacherDashboard({ onStudentDetails }: EnhancedTeacherDashboardProps) {
-  const [activeSection, setActiveSection] = useState('alerts');
+export default function EnhancedTeacherDashboard({ onStudentDetails, activeSection = 'alerts' }: EnhancedTeacherDashboardProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
   
@@ -367,24 +368,65 @@ export default function EnhancedTeacherDashboard({ onStudentDetails }: EnhancedT
   );
 
   const sections = {
-    alerts: { title: 'Alert & Priority Panel', component: renderAlertsSection },
     attendance: { title: 'Attendance Management', component: renderAttendanceSection },
     grades: { title: 'Grades & Marks', component: renderGradesSection },
     fees: { title: 'Fee Management', component: renderFeesSection },
     medical: { title: 'Medical Records', component: renderMedicalSection },
-    risk: { title: 'Risk Assessment', component: renderRiskAssessmentSection },
+    'risk-assessment': { title: 'Risk Assessment', component: renderRiskAssessmentSection },
     reports: { title: 'Reports', component: renderReportsSection },
-    notifications: { title: 'Notifications', component: renderNotificationsSection }
+    classes: { title: 'Class Management', component: () => (
+      <Card className="shadow-card">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <BookOpen className="h-5 w-5" />
+            Class Management
+          </CardTitle>
+          <CardDescription>Manage your assigned classes and subjects</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {['9A', '9B', '10A'].map((className) => (
+                <div key={className} className="p-4 border rounded-lg">
+                  <h3 className="font-semibold mb-2">Class {className}</h3>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span>Students:</span>
+                      <span className="font-medium">24</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Average Marks:</span>
+                      <span className="font-medium">78%</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Attendance:</span>
+                      <span className="font-medium">85%</span>
+                    </div>
+                  </div>
+                  <Button className="w-full mt-3" size="sm" variant="outline">
+                    View Details
+                  </Button>
+                </div>
+              ))}
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    )}
   };
+
+  const currentSection = sections[activeSection as keyof typeof sections];
 
   return (
     <div className="space-y-6">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Enhanced Teacher Dashboard</h1>
+          <h1 className="text-3xl font-bold">
+            {currentSection ? currentSection.title : 'Teacher Dashboard'}
+          </h1>
           <p className="text-muted-foreground">
-            Comprehensive student monitoring and intervention tools
+            {currentSection ? `Manage ${currentSection.title.toLowerCase()}` : 'Select a section from the sidebar'}
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -398,23 +440,13 @@ export default function EnhancedTeacherDashboard({ onStudentDetails }: EnhancedT
         </div>
       </div>
 
-      {/* Navigation Pills */}
-      <div className="flex flex-wrap gap-2">
-        {Object.entries(sections).map(([key, section]) => (
-          <Button
-            key={key}
-            variant={activeSection === key ? 'default' : 'outline'}
-            size="sm"
-            onClick={() => setActiveSection(key)}
-          >
-            {section.title}
-          </Button>
-        ))}
-      </div>
-
       {/* Current Section Content */}
       <div className="min-h-[600px]">
-        {sections[activeSection as keyof typeof sections].component()}
+        {currentSection ? currentSection.component() : (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground">Please select a section from the sidebar to view content.</p>
+          </div>
+        )}
       </div>
     </div>
   );
